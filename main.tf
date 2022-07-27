@@ -8,71 +8,382 @@ terraform {
 }
 
 provider "snowflake" {
-  role  = "SYSADMIN"
-	region = "us-east-1"
+        username = "VTSENG"
+        account = "MTB79929"
+        region = "us-east-1"
+        role  = "ENGINEER"
 }
 
-resource "snowflake_database" "db" {
-  name     = "TF_DEMO"
+
+resource "snowflake_table" "table" {
+  database            = "AGISIGHT_RNDC_NEW"
+  schema              = "WAREHOUSE_MANAGEMENT"
+  name                = "CARRIER"
+  change_tracking     = false
+
+  column {
+    name     = "TRANSPORTATION_CARRIER"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "PORTAL_COMMUNICATION"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "ADDRESS_POSTALCODE"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "SUPPORTS_SHIP_TO_HOLD"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name    = "ADDRESS_COUNTY"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "ACTIVE"
+    type    = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "HAZMAT_SUPPORT"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "LOAD_BOARD_AUTOMATED_QUOTE"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "LAST_UPDATED_TIMESTAMP"
+    type     = "TIMESTAMP_NTZ(9)"
+    nullable = true
+  }
+
+  column {
+    name     = "CHECK_CALL_FREQUENCY"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name    = "ADDRESS_LASTNAME"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "TRACKING_SUPPORTED"
+    type    = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "TENDER_SUPPORTED"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "PROVIDER_ID"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "ADDRESS_EMAIL"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "LOAD_BOARD"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name    = "PAY_TO"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "DESCRIPTION"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "ADDRESS_ADDRESS2"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "SCAC_CODE"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "ADDRESS_ADDRESS1"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "COMMUNICATION_METHOD"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "ADDRESS_ADDRESS3"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "ADDRESS_PHONE"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "CREATED_TIMESTAMP"
+    type     = "TIMESTAMP_NTZ(9)"
+    nullable = true
+  }
+
+  column {
+    name     = "CARRIER_ID"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "EXTERNAL_PARCEL_MAPPING_CODE"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "CREATED_USER"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "PROFILE_ID"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "ADDRESS_COUNTRY"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "AUTO_ACCEPT_TENDER"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "ADDRESS_FIRSTNAME"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "APPOINTMENT_SUPPORTED"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "ADDRESS_CITY"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "ADDRESS_STATE"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "EDI_COMMUNICATION"
+    type    = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "NAME"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "INVOICE_SUPPORTED"
+    type     = "NUMBER(38,0)"
+    nullable = true
+
+  }
+
+  column {
+    name     = "BROADCAST_SUPPORTED"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "LAST_UPDATED_USER"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "MULTI_STOP_SUPPORT"
+    type    = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name    = "ON_BOARDING_STATUS_ID"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "CARRIER_PK"
+    type     = "NUMBER(38,0)"
+    nullable = false
+  }
+
+  column {
+    name     = "SUPPORTS_END_OF_DAY"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "DOT_NUMBER"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "EDI_COMMUNICATION_TYPE_ID"
+    type     = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "VAN_PROVIDER_ID"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name    = "TOLL_DISCOUNT_PLAN"
+    type    = "VARCHAR(16777216)"
+    nullable = true
+  }
+
+  column {
+    name     = "CARRIERACCESSORIAL_C"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "SUPPORTEDMODE_C"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "SUPPORTEDEQUIPMENT_C"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "SUPPORTEDSERVICELEVEL_C"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name    = "CARRIERCHARGEDEFINITION_C"
+    type    = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name    = "CARRIERCONTACT_C"
+    type    = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "PRIVATE_FLEET"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "__HEVO__INGESTED_AT"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "__HEVO__LOADED_AT"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+
+  column {
+    name     = "__HEVO__MARKED_DELETED"
+    type     = "BOOLEAN"
+    nullable = true
+  }
+
+  column {
+    name     = "__HEVO__SOURCE_MODIFIED_AT"
+    type     = "NUMBER(38,0)"
+    nullable = true
+  }
+  primary_key {
+    keys = ["CARRIER_PK"]
+  }
 }
 
-resource "snowflake_warehouse" "warehouse" {
-  name           = "TF_DEMO"
-  warehouse_size = "large"
-
-  auto_suspend = 60
-}
-
-provider "snowflake" {
-        alias = "security_admin"
-        role  = "SECURITYADMIN"
-		region = "us-east-1"
-    }
-    resource "snowflake_role" "role" {
-        provider = snowflake.security_admin
-        name     = "TF_DEMO_SVC_ROLE"
-    }
-    resource "snowflake_database_grant" "grant" {
-        provider          = snowflake.security_admin
-        database_name     = snowflake_database.db.name
-        privilege         = "USAGE"
-        roles             = [snowflake_role.role.name]
-        with_grant_option = false
-    }
-    resource "snowflake_schema" "schema" {
-        database   = snowflake_database.db.name
-        name       = "TF_DEMO"
-        is_managed = false
-    }
-    resource "snowflake_schema_grant" "grant" {
-        provider          = snowflake.security_admin
-        database_name     = snowflake_database.db.name
-        schema_name       = snowflake_schema.schema.name
-        privilege         = "USAGE"
-        roles             = [snowflake_role.role.name]
-        with_grant_option = false
-    }
-    resource "snowflake_warehouse_grant" "grant" {
-        provider          = snowflake.security_admin
-        warehouse_name    = snowflake_warehouse.warehouse.name
-        privilege         = "USAGE"
-        roles             = [snowflake_role.role.name]
-        with_grant_option = false
-    }
+   
     resource "tls_private_key" "svc_key" {
         algorithm = "RSA"
         rsa_bits  = 2048
     }
-    resource "snowflake_user" "user" {
-        provider          = snowflake.security_admin
-        name              = "tf_demo_user"
-        default_warehouse = snowflake_warehouse.warehouse.name
-        default_role      = snowflake_role.role.name
-        default_namespace = "${snowflake_database.db.name}.${snowflake_schema.schema.name}"
-        rsa_public_key    = substr(tls_private_key.svc_key.public_key_pem, 27, 398)
-    }
-    resource "snowflake_role_grants" "grants" {
-        provider  = snowflake.security_admin
-        role_name = snowflake_role.role.name
-        users     = [snowflake_user.user.name]
-    }
+ 
+ 
